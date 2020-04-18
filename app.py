@@ -9,10 +9,19 @@ with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
 """
 
-
 window = Tk()
-window.wm_title("Telecharger un son Youtube")
 
+# style
+window.wm_title("Telecharger un son Youtube")
+background_color = "#1460a8"
+buttons_color = "#1c79d1"
+foreground_color = "#e2eaf1"
+light_color = "#74abda"
+
+#window.geometry('600x400')
+window.configure(bg=background_color)
+#window.configure(fg=foreground_color)
+#window.background("blue")
 """ Functions"""
 videos = []
 
@@ -38,15 +47,18 @@ def reinitialize_command():
 
 
 def download_command():
+    ydl_opts = {}
     for ylink in videos:
         url = ylink
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
         print(url)
 
 """Value Entry"""
-l1 = Label(window, text ="Lien Youtube", width = 16)
+l1 = Label(window, text ="Lien Youtube", width = 16, bg=background_color, foreground=foreground_color)
 l1.grid(row = 0, column = 1)
 
-l2 = Label(window, text ="Titre Youtube", width = 16)
+l2 = Label(window, text ="Titre Youtube", width = 16, bg=background_color, foreground=foreground_color)
 l2.grid(row = 1, column = 1)
 """
 l3 = Label(window, text ="Artiste", width = 16)
@@ -56,10 +68,10 @@ l4 = Label(window, text ="Titre", width = 16)
 l4.grid(row = 3, column = 1)
 """
 link_text = StringVar()
-e1 = Entry(window, width = 45, textvariable = link_text)
+e1 = Entry(window, width = 45, textvariable = link_text, bg=light_color)
 e1.grid(row = 0, column = 2, columnspan = 3)
 
-t1 = Text(window, height = 1, width = 34)
+t1 = Text(window, height = 1, width = 34,  bg=light_color)
 t1.grid(row = 1, column = 2, columnspan = 3)
 """
 artist_text = StringVar()
@@ -72,10 +84,10 @@ e2.grid(row = 3, column = 2, columnspan = 3)
 """
 
 """ListBox & Scrollbar"""
-list1 = Listbox(window, height = 10, width = 50)
+list1 = Listbox(window, height = 10, width = 50, bg=light_color)
 list1.grid(row = 6, column = 1, rowspan = 6, columnspan = 4)
 
-sb1 = Scrollbar(window)
+sb1 = Scrollbar(window, bg=light_color)
 sb1.grid(row = 6, column = 4, rowspan=6)
 
 list1.configure(yscrollcommand = sb1.set)
@@ -84,16 +96,16 @@ sb1.configure(command= list1.yview)
 list1.bind('<<ListboxSelect>>', get_selected_row)
 
 """Buttons"""
-b1 = Button(window, text = "Ajouter", width=12, command = add_command)
+b1 = Button(window, text = "Ajouter", width=12, command = add_command,  bg=buttons_color)
 b1.grid(row = 4, column = 1)
 
-b2 = Button(window, text = "Telecharger", width=12, command = download_command)
+b2 = Button(window, text = "Telecharger", width=12, command = download_command, bg=buttons_color)
 b2.grid(row = 4, column = 2)
 
-b3 = Button(window, text = "Reinitialiser", width=12, command = reinitialize_command)
+b3 = Button(window, text = "Reinitialiser", width=12, command = reinitialize_command, bg=buttons_color)
 b3.grid(row = 4, column = 3)
 
-b4 = Button(window, text = "Fermer", width=12, command = window.destroy)
+b4 = Button(window, text = "Fermer", width=12, command = window.destroy, bg=buttons_color)
 b4.grid(row = 12, column = 2)
 
 window.mainloop()
