@@ -17,17 +17,30 @@ window.wm_title("Telecharger un son Youtube")
 videos = []
 
 def get_selected_row(event):
-    print("do somthing")
+    try:
+        global selected_tuple
+        index = list1.curselection()[0]
+        selected_tuple = list1.get(index)
+        e1.delete(0,END)
+        e1.insert(END, selected_tuple[1])
+    except IndexError:
+        pass
 
 def add_command():
-    print("do somthing")
+    videos.append(link_text.get())#, artist_text.get(),title_text.get())
+    list1.delete(0,END)
+    for video in videos:
+        list1.insert(END, video)
 
 def reinitialize_command():
-    print("do somthing")
+    del videos[:]
+    list1.delete(0,END)
 
 
 def download_command():
-    print("do somthing")
+    for ylink in videos:
+        url = ylink
+        print(url)
 
 """Value Entry"""
 l1 = Label(window, text ="Lien Youtube", width = 16)
