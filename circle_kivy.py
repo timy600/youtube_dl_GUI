@@ -1,9 +1,3 @@
-'''
-Circle Example
-from:
-https://kivy.org/doc/stable/examples/gen__canvas__circle__py.html#file-canvas-circle-py
-==============
-'''
 
 from kivy.app import App
 from kivy.lang import Builder
