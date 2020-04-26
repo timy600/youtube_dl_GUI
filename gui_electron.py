@@ -10,3 +10,12 @@ s.bind(addr)gevent.signal(signal.SIGTERM, s.stop)
 gevent.signal(signal.SIGINT, s.stop)  # ^C
 
 s.run()
+
+
+
+# and now we can call on Python:
+# Python code
+class PythermalApi(object):    def echo(self, text):
+    """echo any text"""
+    return text    
+#.... (more endpoints) ...
