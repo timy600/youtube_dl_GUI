@@ -2,6 +2,8 @@
 
 # https://github.com/fyears/electron-python-example
 
+# https://towardsdatascience.com/exploratory-data-analysis-tutorial-in-python-15602b417445
+
 import zerorpc
 import gevent, signalport = 1234
 addr = 'tcp://127.0.0.1:' + port
@@ -17,5 +19,5 @@ s.run()
 # Python code
 class PythermalApi(object):    def echo(self, text):
     """echo any text"""
-    return text    
+    return text
 #.... (more endpoints) ...
