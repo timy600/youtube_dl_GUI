@@ -2,13 +2,6 @@ from __future__ import unicode_literals
 import youtube_dl
 from tkinter import *
 
-"""
-url = "https://www.youtube.com/watch?v=kJQP7kiw5Fk"
-ydl_opts = {}
-with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([url])
-"""
-
 window = Tk()
 
 # style
@@ -22,7 +15,7 @@ light_color = "#74abda"
 window.configure(bg=background_color)
 #window.configure(fg=foreground_color)
 #window.background("blue")
-""" Functions"""
+#Functions
 videos = []
 
 def get_selected_row(event):
@@ -54,36 +47,21 @@ def download_command():
             ydl.download([url])
         print(url)
 
-"""Value Entry"""
+#Value Entry
 l1 = Label(window, text ="Lien Youtube", width = 16, bg=background_color, foreground=foreground_color)
 l1.grid(row = 0, column = 1)
 
 l2 = Label(window, text ="Titre Youtube", width = 16, bg=background_color, foreground=foreground_color)
 l2.grid(row = 1, column = 1)
-"""
-l3 = Label(window, text ="Artiste", width = 16)
-l3.grid(row = 2, column = 1)
 
-l4 = Label(window, text ="Titre", width = 16)
-l4.grid(row = 3, column = 1)
-"""
 link_text = StringVar()
 e1 = Entry(window, width = 45, textvariable = link_text, bg=light_color)
 e1.grid(row = 0, column = 2, columnspan = 3)
 
 t1 = Text(window, height = 1, width = 34,  bg=light_color)
 t1.grid(row = 1, column = 2, columnspan = 3)
-"""
-artist_text = StringVar()
-e2 = Entry(window, width = 45, textvariable = artist_text)
-e2.grid(row = 2, column = 2, columnspan = 3)
 
-title_text = StringVar()
-e2 = Entry(window, width = 45, textvariable = title_text)
-e2.grid(row = 3, column = 2, columnspan = 3)
-"""
-
-"""ListBox & Scrollbar"""
+#ListBox & Scrollbar
 list1 = Listbox(window, height = 10, width = 50, bg=light_color)
 list1.grid(row = 6, column = 1, rowspan = 6, columnspan = 4)
 
@@ -95,7 +73,7 @@ sb1.configure(command= list1.yview)
 
 list1.bind('<<ListboxSelect>>', get_selected_row)
 
-"""Buttons"""
+#Buttons
 b1 = Button(window, text = "Ajouter", width=12, command = add_command,  bg=buttons_color)
 b1.grid(row = 4, column = 1)
 
