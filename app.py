@@ -19,6 +19,7 @@ window.configure(bg=background_color)
 videos = []
 
 # creating an output object that we will be able to manage
+"""
 class MyLogger(object):
     def debug(self, msg):
         pass
@@ -30,7 +31,7 @@ class MyLogger(object):
 def my_hook(d):
     if d['status'] == 'finished':
         print('Done downloading, now converting ...')
-
+"""
 def get_selected_row(event):
     try:
         global selected_tuple
