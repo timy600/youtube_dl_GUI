@@ -19,6 +19,11 @@ window.configure(bg=background_color)
 videos = []
 
 # creating an output object that we will be able to manage
+
+# GET THE OUTPUT:
+# loader
+# title + name, artiste, time, quality, type....
+
 """
 class MyLogger(object):
     def debug(self, msg):
