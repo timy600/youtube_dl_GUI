@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import youtube_dl
 from tkinter import *
-
+from urllib import HTTPError
 window = Tk()
 
 # style
@@ -23,6 +23,8 @@ videos = []
 # GET THE OUTPUT:
 # loader
 # title + name, artiste, time, quality, type....
+
+
 
 """
 class MyLogger(object):
@@ -61,8 +63,15 @@ def reinitialize_command():
 def download_command():
     ydl_opts = {}
     for ylink in videos:
-
         url = ylink
+        try:
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+            print(url)
+        except HTTPError as e:
+            if e.code == 403:
+                print("ERROR 403")
+
         """
         ydl_opts = {
             'format': 'bestaudio/best',
@@ -75,9 +84,6 @@ def download_command():
             'progress_hooks': [my_hook],
         }
         """
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-        print(url)
 
 
 
