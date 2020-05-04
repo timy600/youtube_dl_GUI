@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import youtube_dl
 from tkinter import *
-from urllib import HTTPError
+#from urllib import HTTPError
 window = Tk()
 
 # style
@@ -64,6 +64,10 @@ def download_command():
     ydl_opts = {}
     for ylink in videos:
         url = ylink
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+        print(url)
+        """
         try:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
@@ -71,6 +75,7 @@ def download_command():
         except HTTPError as e:
             if e.code == 403:
                 print("ERROR 403")
+        """
 
         """
         ydl_opts = {
